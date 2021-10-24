@@ -1,5 +1,7 @@
-localhost 123
-localhost 111
-coolParser 222
-coolParser 333
-coolParser 111 
+duckduckgo.com 80
+duckduckgo.com 443
+duckduckgo.com 9999
+localhost 8080
+localhost 22
+localhost 3000
+google.com 80

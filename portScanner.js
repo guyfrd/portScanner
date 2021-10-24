@@ -6,11 +6,18 @@ const { DnsError, ConnectPortError } = require('./src/errors');
 const commander = require('commander'); 
 const util = require('util');
 
-const printResults = (JSONformat, hosts) => {
-    if (JSONformat) {
-        console.log(JSON.stringify(hosts));
-    } else {
-        console.log(util.inspect(hosts, false, null, true)); //TODO: create more readable output 
+
+const printResults = (hosts) => {
+    console.log(`----PortScanner----`);
+    for (const [hostName, host] of Object.entries(hosts)) {
+        console.log(`host name: ${hostName}`);
+        console.log(`ipV4: ${host.ipV4}`);
+        console.log(`ipV6: ${host.ipV6 !== undefined ? host.ipV6 : 'not exist'}`);
+        console.log(`dns lookup: status: ${host.dnsStatus} time: ${host.dnsTimeMs}`);
+        host.ports.forEach((port) => {
+            console.log(`  port: ${port.port}  status: ${port.status}`);
+        });
+        console.log(`-------------------------`)
     }
 }
 
@@ -40,7 +47,11 @@ const scan = async (hosts) => {
 const portScanner = async () => {
     const hosts = parser(options.input);
     await scan(hosts);
-    printResults(options.json, hosts);
+    if (options.json) {
+        console.log(JSON.stringify(hosts));
+    } else {
+        printResults(hosts);
+    }
 }
 
 const program = new commander.Command();
