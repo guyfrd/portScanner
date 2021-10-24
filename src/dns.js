@@ -3,7 +3,6 @@ const { performance } = require('perf_hooks');
 const { setTimeout } = require('timers');
 const { env } = require('process');
 const { DnsError } = require('./errors');
-const { hostname } = require('os');
 
 async function portScannerDns(hostName) {
     return new Promise(async (resolve, reject) => {

@@ -1,5 +1,4 @@
 const net = require('net');
-const { ConnectPortError } = require('./errors');
 const { env } = require('process');
 
 function checkPort(port, ip) {
