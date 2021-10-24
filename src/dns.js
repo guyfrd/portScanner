@@ -13,11 +13,11 @@ async function portScannerDns(hostName) {
             const res = await dnsPromises.resolve(hostName, 'ANY');
             const endTime = performance.now();
             
-            const ipV4 = res.find(element => element.type === 'A');
-            const ipV6 = res.find(element => element.type === 'AAAA');
-            const ipv6Add = ipV6 !== undefined ? ipV6.address : undefined; 
+            const IPv4 = res.find(element => element.type === 'A');
+            const IPv6 = res.find(element => element.type === 'AAAA');
+            const IPv6Add = IPv6 !== undefined ? IPv6.address : undefined; 
             
-            resolve({ ipV4: ipV4.address, ipV6: ipv6Add, timeMS: parseFloat(endTime - startTime).toFixed(2) });
+            resolve({ IPv4: IPv4.address, IPv6: IPv6Add, timeMS: parseFloat(endTime - startTime).toFixed(2) });
         } catch(e) {
             clearTimeout(timeoutId);
             reject(new DnsError(e));

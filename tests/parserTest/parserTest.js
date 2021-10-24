@@ -10,7 +10,7 @@ const accept = {
                {port: 111, status: 'new'} ],
       dnsTimeMs: 0,
       dnsStatus: 'new',
-      ipV6: false
+      IPv6: false
 }, coolParser: {
     hostName: 'coolParser',
     ip: 'waitingDns',
@@ -19,7 +19,7 @@ const accept = {
              {port: 111, status: 'new'}  ],
     dnsTimeMs: 0,
     dnsStatus: 'new',
-    ipV6: false
+    IPv6: false
 }}
 
 

@@ -13,8 +13,8 @@ function portScannerParser(path) {
         if (!(host in hosts)) {
             hosts[host] = {
                 hostName: host,
-                ipV4: '0',
-                ipV6: '0',
+                IPv4: '0',
+                IPv6: '0',
                 ports: [{port: port, status: 'new'}], // status in file or object
                 dnsTimeMs: 0.0,
                 dnsStatus: 'new',

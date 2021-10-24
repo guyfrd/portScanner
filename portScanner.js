@@ -11,8 +11,8 @@ const printResults = (hosts) => {
     console.log(`----PortScanner----`);
     for (const [hostName, host] of Object.entries(hosts)) {
         console.log(`host name: ${hostName}`);
-        console.log(`ipV4: ${host.ipV4}`);
-        console.log(`ipV6: ${host.ipV6 !== undefined ? host.ipV6 : 'not exist'}`);
+        console.log(`IPv4: ${host.IPv4}`);
+        console.log(`IPv6: ${host.IPv6 !== undefined ? host.IPv6 : 'not exist'}`);
         console.log(`dns lookup: status: ${host.dnsStatus} time: ${host.dnsTimeMs}`);
         host.ports.forEach((port) => {
             console.log(`  port: ${port.port}  status: ${port.status}`);
@@ -24,12 +24,12 @@ const printResults = (hosts) => {
 const scan = async (hosts) => {
     for (const [hostName, host] of Object.entries(hosts)) {
         try {
-            const { ipV4, ipV6, timeMS } = await dnsResolve(hostName);
+            const { IPv4, IPv6, timeMS } = await dnsResolve(hostName);
             host.dnsStatus = 'success';
-            host.ipV4 = ipV4;
-            host.ipV6 = ipV6;
+            host.IPv4 = IPv4;
+            host.IPv6 = IPv6;
             host.dnsTimeMs = timeMS;
-            const ipAdd = options.ip === 'ipV6' && host.ipV6 !== undefined ? host.ipV6 : host.ipV4 
+            const ipAdd = options.ip === 'IPv6' && host.IPv6 !== undefined ? host.IPv6 : host.IPv4 
             const res = await Promise.all(host.ports.map((port) => {
                 return checkPort(port.port, ipAdd);
             }));
@@ -58,7 +58,7 @@ const program = new commander.Command();
 program
   .requiredOption('-i, --input <path>', 'input file for portScanner')
   .option('-j, --json', 'get output as json format')
-  .option('-p, --ip <ver>', 'use the ip version if exist', 'ipV4');
+  .option('-p, --ipv6', 'use the IPv6 address if exist', 'IPv4');
 
 program.parse(process.argv);
 const options = program.opts();
