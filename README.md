@@ -29,7 +29,7 @@ A port scanner is a program which receives a bunch of hosts and ports, and says 
    ```
 
 ### Input format
-Port scanner get input file that consist the fowling format:
+Port scanner get input file that consist the fowling format:<br />
 hostName port<br />
 hostName port<br />
 hostName port<br />
