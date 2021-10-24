@@ -1,4 +1,4 @@
-const parser = require('../../portScannerParser');
+const parser = require('../../src/parser');
 const _ = require('lodash');
 const colors = require('colors');
 
@@ -23,7 +23,7 @@ const accept = {
 }}
 
 
-const res = parser('./parserTest2.txt');
+const res = parser('./parserTestInput.txt');
 
 if (_.isEqual(res, accept)) {
     console.log('portScannerParser test- ' + 'FAIL'.red);
