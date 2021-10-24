@@ -1,13 +1,79 @@
 # portScanner
- A port scanner is a program which receives a bunch of hosts and ports, and says which ports are open, and which are closed.
 
-input file format: 
+<!-- ABOUT THE PROJECT -->
+## About The Project
 
- hostName port
+A port scanner is a program which receives a bunch of hosts and ports, and says which ports are open, and which are closed.
 
- hostName port
+### Built With
 
- ...
+* [Node.js](https://nextjs.org/)
 
-run with:
-node portScanner.js -i path/to/input/file
+<!-- GETTING STARTED -->
+## Getting Started
+
+### Prerequisites
+
+* npm
+* node.js
+
+### Installation
+ 
+1. Clone the repo
+   ```sh
+   git clone https://github.com/guyfrd/portScanner
+   ```
+3. Install NPM packages
+   ```sh
+   npm install
+   ```
+
+### Input format
+Port scanner get input file that consist the fowling format:
+hostName port<br />
+hostName port<br />
+hostName port<br />
+...
+ 
+ example: 
+```sh
+duckduckgo.com 9999
+localhost 8080
+localhost 22
+localhost 3000
+google.com 80
+```
+
+## Usage
+
+### run 
+```sh
+   node <path_to_repo>/portScanner.js -i <path_to_input_file>
+```
+### IPv6
+PortScanner convert the hostname to IP address, if IPv6 exists for the host, you can use this address by using the flag 
+```sh
+--p IPv6
+```
+As default, portScanner use IPv4. 
+
+### JSON output 
+
+portScanner will print after checking all ports and hosts.<br />
+get the output in JSON format by using the flag: 
+```sh
+--json
+```
+## tests
+
+run from repo root directory:
+```sh
+cd tests/parserTest
+node parserTest.js 
+```
+
+## Future features 
+
+* loging
+* save output to directory
+* more tests
