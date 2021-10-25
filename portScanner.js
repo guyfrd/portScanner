@@ -4,8 +4,6 @@ const dnsResolve = require('./src/dns');
 const checkPort = require('./src/ports');
 const { DnsError, ConnectPortError } = require('./src/errors');
 const commander = require('commander'); 
-const util = require('util');
-
 
 const printResults = (hosts) => {
     console.log(`----PortScanner----`);
@@ -38,6 +36,7 @@ const scan = async (hosts) => {
             if (e instanceof DnsError) {
                 host.dnsStatus = 'failed';
             }
+
             console.log(e);
             continue;
         }
