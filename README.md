@@ -51,7 +51,7 @@ google.com 80
    node <path_to_repo>/portScanner.js -i <path_to_input_file>
 ```
 ### IPv6
-PortScanner convert the hostname to IP address, if IPv6 exists for the host, you can use this address by using the flag 
+PortScanner convert the hostname to IP address, for use the IPv6 address as default(if exist), pass the flag:
 ```sh
 --p IPv6
 ```
@@ -59,7 +59,7 @@ As default, portScanner use IPv4.
 
 ### JSON output 
 
-portScanner will print after checking all ports and hosts.<br />
+portScanner will print check results along dns results and query duration, after checking all ports and hosts.<br />
 get the output in JSON format by using the flag: 
 ```sh
 --json
