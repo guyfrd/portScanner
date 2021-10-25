@@ -72,6 +72,18 @@ cd tests/parserTest
 node parserTest.js 
 ```
 
+
+## configuration 
+
+### timeout
+use the .env file to set the timeout(in milliseconds) for dns-request and port-check.<br />
+example:<br />
+```sh
+DNS_TIMEOUT = 4000
+PORT_CHECK_TIMEOUT = 2000 
+```
+by default timers set to 4 sec for dns-request and 2 sec for port checking. 
+
 ## Future features 
 
 * loging

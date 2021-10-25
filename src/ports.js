@@ -10,7 +10,7 @@ function checkPort(port, ip) {
         socket.once('connect', () => {
             status = 'open'
             socket.destroy();
-            resolve({port, status});
+            resolve({ port, status });
         });
         
         socket.setTimeout(Number(env.PORT_CHECK_TIMEOUT));
@@ -18,7 +18,7 @@ function checkPort(port, ip) {
             status = 'close';
             socket.destroy();
 
-            resolve({port, status});
+            resolve({ port, status });
         });
 
         socket.once('error', (error) => {
@@ -26,10 +26,10 @@ function checkPort(port, ip) {
 
             if (error.code === 'ECONNREFUSED') {
                 status = 'close';
-                resolve({port, status});
+                resolve({ port, status });
             } else {
                 status = 'error';
-                reject({port, status});
+                reject({ port, status });
             }
         })
         
